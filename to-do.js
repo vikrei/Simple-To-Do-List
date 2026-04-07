@@ -11,13 +11,19 @@ const addButton = document.getElementById('add-button');
 function createTodoElement(todo) {
     const li = document.createElement('li');
     li.classList.add('todo-item');
+    
     const span = document.createElement('span');
+    span.classList.add('todo-text');
     span.textContent = todo.text;
+
     const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-button');
     deleteButton.addEventListener('click', () => deleteTodo(todo.id));
     deleteButton.textContent = 'Delete';
+
     li.appendChild(span);
     li.appendChild(deleteButton);
+
     return li;
 }
 
