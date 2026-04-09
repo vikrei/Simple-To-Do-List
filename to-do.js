@@ -21,6 +21,8 @@ function createTodoElement(todo) {
     deleteButton.addEventListener('click', () => deleteTodo(todo.id));
     deleteButton.textContent = 'Delete';
 
+    span.add
+
     li.appendChild(span);
     li.appendChild(deleteButton);
 
@@ -34,12 +36,15 @@ function renderTodos() {
         const li = createTodoElement(todo);
         todoList.appendChild(li);
     });
+    if (todos.length === 0) {
+        todoList.innerHTML = "<p>No tasks yet!</p>";
+        return;
+    }
 }
 
 // Add todo
 function addTodo() {
     const text = todoInput.value.trim();
-
     if (text === '') return;
 
     const newTodo = {
