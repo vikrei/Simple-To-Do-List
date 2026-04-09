@@ -21,8 +21,6 @@ function createTodoElement(todo) {
     deleteButton.addEventListener('click', () => deleteTodo(todo.id));
     deleteButton.textContent = 'Delete';
 
-    span.add
-
     li.appendChild(span);
     li.appendChild(deleteButton);
 
@@ -37,7 +35,9 @@ function renderTodos() {
         todoList.appendChild(li);
     });
     if (todos.length === 0) {
-        todoList.innerHTML = "<p>No tasks yet!</p>";
+        const li = document.createElement('li');
+        li.textContent = 'No tasks yet!';
+        todoList.appendChild(li);
         return;
     }
 }
@@ -62,9 +62,10 @@ function deleteTodo(id) {
     todos = todos.filter(todo => todo.id !== id);
     renderTodos();
 }
+
 renderTodos();
 addButton.addEventListener('click', addTodo);
-todoInput.addEventListener('keypress', (event) => {
+todoInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         addTodo();
     }
