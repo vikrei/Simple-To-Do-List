@@ -64,3 +64,8 @@ function deleteTodo(id) {
 }
 renderTodos();
 addButton.addEventListener('click', addTodo);
+todoInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        addTodo();
+    }
+}); 
